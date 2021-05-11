@@ -1,0 +1,72 @@
+			     EE 109 - Spring 2021
+		     Lab 6 - Analog to Digital Conversion
+
+Edit the document below to fill in your answers to the review problems at the
+end of the assignment web page.
+
+
+1. (3 points) Review the conceptual operation of an ADC and use the given
+parameters to find the desired value.
+
+  a. Your 8-bit ADC has Hi and Lo reference voltages of 1V and 4V, what digital
+  number would result from sampling a 2.0V?
+	85
+
+
+  b. Your 5-bit ADC has Hi and Lo reference voltages of 0V and 5V, what input
+  voltage would yield a digital number of 12?
+	1.9355V
+
+
+  c.  Your 6-bit ADC has a Lo reference voltages of 2V. A voltage is sampled at
+  2.4V and the digital result is 26. What was the Hi reference voltage used by
+  the ADC?
+	2.9692
+
+
+
+2. (1 points We want you to feel comfortable reading documentation to
+understand the operation of a device. To that end, open the ATmega328/P
+datasheet linked on our website from the Tools and Links Page and go to chapter
+28 regarding the ADC. Read over the register bit descriptions of ADCSRA and
+ADCSRB in sections 28.9.2 and 28.9.7, respectively. In addition, skim through
+section 28.4 and view the timing diagrams.
+
+Now consider what effect setting the ADATE bit of ADCSRA to a 1 will have,
+assuming you don't modify ADCSRB from its default reset value. Briefly describe
+what the ADC module will do.
+
+When ADATE is written to one, the ADC will start a conversion on a positive edge of the selected trigger signal. If the ADTS is not chosen as default, the trigger source will be in free running mode. ADC clock will be auto triggered to hold 2 samples of 13 cycles. 
+
+
+
+
+-------------------------------------------------------------------------------
+
+			   Operation of the Circuit
+
+Please record a video of you demonstrating the operation of the circuit
+that shows the following aspects of the game on the LCD.
+
+1. Show that the 'X' is in a different position each time the game is started.
+Sometimes it may come up in the same position, but it should not always be in
+same place.
+
+2. Pressing the left and right buttons move the 'X' along the top row.
+
+3. Rotating the potentiometer moves the '^' along the bottom row.  It should
+move smoothly and evenly from one end to the other, and not do something
+like move all the way with only the first half of the rotation.
+
+4. Show that moving the '^' under the 'X' for a time less than two seconds does
+not win the game.  It should be possible to do this more than once to show that
+the time under the 'X' is not being accumulated.
+
+5. Moving the '^' under the 'X' and leaving it there for two seconds or more
+should cause the game to be won.
+
+Paste link to lab demonstration video below:
+
+https://youtu.be/bh9QNIaSaBg
+
+

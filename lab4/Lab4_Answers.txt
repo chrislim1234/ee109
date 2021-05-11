@@ -1,0 +1,59 @@
+			     EE 109  - Spring 2021
+			 Lab 4 - Using the LCD Display
+
+Edit the document below to fill in your answers to the review problems at the
+end of the assignment web page.
+
+1 (2 points) We want you to feel comfortable reading documentation to
+understand the operation of a device. To that end, open the ATmega328/P
+datasheet linked on our website from the Tools and Links Page. Go to section
+18.2 and read over pages 98-99. Note that "toggle" means flip to its opposite
+value, regardless of current value.
+
+What effect does writing a 1 to a PIN register bit have? Consider, how this
+might be used to generate the E signal pulse in your lcd_writenibble()
+function. Re-write the 3 lines of code you had to generate the E signal pulse
+for about 250 ns using the feature of writing a 1 to a PIN register bit. You
+may leave the middle line that is intended to simply delay as is. So just show
+the first line (statement) that turns the E signal on and then the last line
+that turns it off. Make sure you use the correct register, masking, etc.
+
+Writing a '1' to PINxn flips the value of PORTxn to its opposite value, independent on the value of DDRxn.
+
+PINB |=(1 << PB1);
+PORTB |= (1 << PB1);  // original line to simply delay
+PINB |=(1 << PB1);
+
+2. (1 point) Suppose we need to perform 3 concurrent tasks intermittently: Task
+A every 20 ms, Task B every 15 ms, and Task C every 40 ms. What delay should be
+used on each iteration of the main loop?
+ 5ms should be used for the main loop so that we can run task A every 4 loops, B every 3 loops and C every 8 loops. 5 is the GCF of 20, 15 and 40. 
+ 
+
+
+
+
+
+-------------------------------------------------------------------------------
+
+			   Operation of the Circuit
+
+Please record a video of you demonstrating the operation of the circuit
+that shows the following aspects of the counter on the LCD.
+
+1. Count sequence is correct (all ten digits shown for the same amount of
+time).
+
+2. Buttons change count direction correctly (doesn’t reset to 0).
+
+3. Count wraps around properly in both directions when it reaches the maximum
+or minimum count value.
+
+4. Counter responds to short button presses to change the direction.  Try to
+show that a short button press between the points when the digit changes will
+cause the counter to change direction.  If necessary slow down the count rate.
+
+
+Paste link to lab demonstration video below:
+https://youtu.be/-nEAO6Gkcj0
+

@@ -1,0 +1,64 @@
+			     EE 109  - Spring 2021
+			      Lab 5 - Number Lock
+
+Edit the document below to fill in your answers to the review problems at the
+end of the assignment web page.
+
+1. (2 points) To ensure a date appears in the format: MM/DD, what snprintf()
+formatting string could be used to ensure dates like 6/9 are generated in a
+character buffer as 06/09.
+
+	char buf[17];
+	int m = 6; d = 9;
+	snprintf(buf, 17, /* you write the format string */, m, d);
+
+snprintf(buf, 17, "%02d/%02d",m, d);
+
+
+
+
+
+2. (1 point) Bobby Bruin wants to add a secret code to the lock where the user
+can go directly from state S0 to the unlocked state S4 by pressing both buttons
+at the same time.  Tammy Trojan, thinking about the execution speed of the
+processor, says this can't be done, at least not reliably.  What is her reason
+for thinking so?
+The reason that Tammy Trojan says that this can't be done is that the if statement that reads in the input from the buttons does not loop quick enough to be able to process both buttons being pressed (not done). The computer will process either one of the buttons being pressed and ignore the other one. Since I wrote the code such that A is checked first in the if statement, it will enter the A loop and only add A when the buttons are released. Additionally there is some aspect of human error as no one can press both buttons at the same time, and so when the process runs, one of the buttons is bounds to have been pressed before the other one, meaning that when we check for both of the buttons to be pressed, that part of the code won't be registered. 
+
+
+
+
+-------------------------------------------------------------------------------
+
+			   Operation of the Circuit
+
+Please record a video of you demonstrating the operation of the circuit
+that shows the following aspects of the combination lock on the LCD.
+
+1. The correct sequence (A-B-A-A) takes it through states S1, S2, and S3 to S4
+and then indicates that it is unlocked.
+
+2. Pressing a button (either one) in S4 returns to S0.
+
+3. Incorrect sequence B-B-B goes to S0.
+
+4. Incorrect sequence A-A-A goes to S1.
+
+5. Incorrect sequence A-B-B goes to S0.
+
+6. Incorrect sequence A-B-A-B goes to S2.
+
+7. Demonstrate pressing a button for a longer time still only counts as one
+button press.  Show by pressing A-B to go to S2, and then holding down A for a
+few seconds before releasing.  This should only take it to the next state, S3.
+
+8. Demonstrate that if you are in some state other than S0 and don't press a
+button for 3 seconds the lock returns to S0.
+
+Paste link to lab demonstration video below:
+https://youtu.be/oU0oiqj0n44
+
+
+
+
+
