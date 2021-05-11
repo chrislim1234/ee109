@@ -1,0 +1,119 @@
+			     EE 109 - Spring 2021
+		 Lab 2 - Electronic Circuits and Digital Gates
+
+Edit the document below to fill your answers from the exercises done in lab.
+Be sure to include the proper units, such as "1 kOhm", or "200 mV".
+
+Note: Don't use special characters like Greek "mu" or "Omega" symbols in your
+answers.  These don't display correctly on Vocareum and can make it hard to
+grade the answers.  For example, if you need to specify units of microseconds,
+just type "microseconds" or "usecs".
+
+
+1. (1 point) What voltage did the DMM measure?
+        DMM =  5.113V
+
+
+2. What are the values of the resistors?  List the values from smallest to
+   largest.
+   (1.5 points) From the color bands:
+	R1 =  240 ohms
+	R2 =  680 ohms
+	R3 =  1300 ohms
+         
+   (1.5 points) The measured values:
+        R1 =  240 ohms
+        R2 =  707 ohms
+        R3 =  1301 ohms
+
+
+3. (2 points) In the circuit with Vs=5V and resistors R1 and R2 in series what
+   are the calculated voltages across them?
+        V1 =  1.304 V
+        V2 =  3.696 V
+
+
+4. (2 points) In the circuit with Vs=5V and resistors R1 and R2 in series what
+   are the measured voltages across them?
+        V1 =  1.325 V
+        V2 =  3.783 V
+
+
+5. (1 points) What are the voltages (or range of voltages) on the switch output
+   when it is not pressed and when it is pressed?
+        Not pressed =  0.01 V
+        Pressed =  0 V
+
+
+6. (1 points) With resistor R2 added to the circuit, what are the voltages on
+   the switch output when it is not pressed and when it is pressed?
+        Not pressed =  5.11 V
+        Pressed =  0 V
+
+
+7. (2 points) Measure the voltage across the current limiting resistors and use
+   Ohm's Law to calculate the current flowing throught the LED.
+                  Voltage     Resistance     Current
+        R1:       1.360V       240 ohm         5.66 mA
+        R3:       1.675V       1.286k ohm       1.30 mA           
+
+8. (2 points) Use the DMM in current measuring mode to measure the current
+   flowing through the LED for both resistors.
+	          Current
+	R1:          5.67 mA
+        R3:          1.30 mA
+
+9: (2 points) Fill in the truth table for the circuit.
+
+	A    B    |   Z
+      ------------+------
+        0    0    |   0
+        0    1    |   1
+        1    0    |   1
+        1    1    |   1
+
+
+10. (1 point) The circuit performs the same function as a ? gate.
+
+OR gate
+
+			  ---- Review Questions ----
+
+1. (3 points) Given the digital circuit you built, suppose as you test it the
+output LED is always OFF regardless of the button positions. For each of the
+following possible explanations, write a sentence that explains why that issue
+would cause the LED to always be off.
+
+     a. VDD was not connected to the IC chips.
+
+	IC chips require power to be able to work, meaning that without being connected to GND and 5V, the LED would therefore always be off (LED's power comes after passing the IC chip in the circuit).
+
+     b. The pull-up resistors for the buttons were not connected appropriately.
+
+	The pull-up resistor would restrict situations in which the voltage is floating, and without it the switch might unpredictably interpret the input value as either a logical high or logical low and hence output a wrong output, and causing the LED to be off. 
+
+     c. The LED was plugged in backwards.
+
+	The long side of the LED is positive and the other side is negative, and since an LED is a diode it will only allow current to flow in one direction, which is why when the LED is plugged in backwards the power doesn't flow in and the LED will be always off.
+
+-------------------------------------------------------------------------------
+
+			   Operation of the Circuit
+
+Please record a video of you demonstrating the operation of the logic circuit
+that shows the output LED under these conditions:
+
+Output when both buttons NOT pressed.
+
+Output when only button A pressed.
+
+Output when only button B pressed.
+
+Output when both buttons pressed.
+
+Paste link to lab demonstration video below:
+https://youtu.be/cuE0ZdYx0Oo
+
+
+
+

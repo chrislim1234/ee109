@@ -1,0 +1,60 @@
+			     EE 109  - Spring 2021
+		       Lab 3 - Arduino Input and Output
+
+Edit the document below to fill in your answers to the review problems at the
+end of the assignment web page.
+
+1. (2 points) Suppose we relocated the three buttons from group B, bits 5-3 to
+group D, bits 5-3, noting that the LED is still attached to group D, bit 2.
+Assuming appropriate DDRD values, consider the following method of turning on
+the LED.
+
+    PORTD = 0x04; // turn on the LED
+
+Explain the problem with this approach and, in particular, what would stop
+working after the execution of that line of code.
+
+The three buttons and the previously connected group B bits 5-3 have to each be kept as 1 as they all require a pull-up transistor which is provided when the bit has a 1 for the PORT and when its DDR is a 0. However by turning on the LED by making PORTD=0x04 since the three buttons are now attached to group D bits 5-3, we would have turned off the pull-up transistor functions for bits 5-3. By doing so, assuming everything else that we did in the lab stays the same, the buttons would not have enough voltage to register wether the bits 5-3 of PIND would be a 0 or 1, and hence not light up the LED consistently as designated by the user. 
+
+
+
+
+
+
+2. (2 points) Suppose Tommy Trojan used an oscilloscope to measure the time
+from the instant a button was depressed to the instant the LED turned on.
+Tommy found that if he did the test several times the amount of delay was never
+the same but varied each time between 3 microseconds and 10
+microseconds. Explain why the delays varied. Think about the timing of how
+software executes.
+
+The delay varies because each time Tommy presses the button, it takes time for the software to go through the code and register the input and execute the output. The time it takes before it registers depends on what part of the code the while loop was running through when the button was pressed. For example if the code had passed the first if statement checking for a button press before the button was pressed, the button would only be executed until that old loop was processed and hence take longer than another trial in which the button press was right before the if statement was checked. Therefore, the trials may have had different amount of time between the button press and for the Led to turn on. 
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+
+			   Operation of the Circuit
+
+Please record a video of you demonstrating the operation of the circuit
+that shows the output LED under these conditions:
+
+1. Output after the 'U' button pressed.
+
+2. Output after the 'S' button pressed.
+
+3. Output after the 'C' button pressed.
+
+4. Hold down the 'S' button for 10 seconds to show that there is a DASH length
+delay between successive S characters as specified in the description on the
+web page of the timing of Morse code characters.
+
+Paste link to lab demonstration video below:
+https://youtu.be/1uLEcjZPcPU
+
+
+
