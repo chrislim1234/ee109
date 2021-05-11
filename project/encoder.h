@@ -1,0 +1,11 @@
+ISR(PCINT0_vect);
+//void variable_delay_us(int);
+//void play_note(unsigned short);
+void encoder_init();
+int find_note(unsigned char);
+unsigned char* find_note2(int);
+int find_temp(unsigned char);
+void encoder();
+extern unsigned int note_freq[25];
+extern unsigned char note_names[25][4];
+unsigned int find_freq(int n);

@@ -1,0 +1,107 @@
+			     EE 109  - Spring 2021
+			      Temperature Monitor
+
+			   Operation of the Circuit
+
+Please record a video of you demonstrating the operation of the circuit.  To earn
+partial credit you may record demo videos at certain checkpoints of the system's
+design and construction.  We will grade **the highest checkpoint video** (i.e. 
+each checkpoint video must show all the features from the previous checkpoint plus
+the new features added in the current checkpoint).
+
+Checkpoint 1 Video:
+1.  Splash screen with your name shown at start.
+
+2.  Temperature sensor responds to temperature changes (touch with your finger
+    to heat or blow on/remove your finger to cool the sensor) and
+    displays temperature with 0.1 degree Fahrenheit precision
+
+Paste link to checkpoint 1 demonstration video here:
+
+
+Checkpoint 2 Video:
+**Demonstrate items 1 and 2 from the previous checkpoint again in this video**.
+Then further show:
+
+3.  Rotary encoder adjusts selected temperature threshold between 
+    60 and 100 degrees (capped at those limits).
+
+4.  Threshold settings stored in EEPROM and retrieved when Arduino
+    restarted (power cycled).
+
+5.  Green and red LEDs and LCD messages respond correctly as temperature   
+    changes below and above the warning temperature threshold set by the 
+    rotary encoder and the +2 degree alert threshold.
+
+Paste link to checkpoint 2 demonstration video here:
+
+
+Checkpoint 3 Video:
+**Demonstrate items 1 through 5 from the previous checkpoint again in this video**.
+Then further show:
+
+6.  Rotary encoder adjusts alert note between C3 and C5, when appropriate select
+    note button is chosen.
+
+7.  Note settings stored in EEPROM and retrieved when Arduino
+    restarted. (You can demonstrate this and item 4 above together with one restart)
+
+8.  Note played when temperature goes 2 degrees over threshold.
+
+
+Paste link to checkpoint 3 demonstration video here:
+https://youtu.be/ygCokZtoUTs
+
+
+Review Question 1 (Cost Analysis):
+
+Assume we are building 1000 units of this system.  Use the provided part numbers 
+(see the webpage) and the digikey.com or jameco.com website to find the total
+**cost per unit** (again assume we build a quantity of 1000 units) for these
+temperature warning systems.  Itemize the part costs (list each part and its unit
+cost when bought in units of 1000) and then show the final cost per unit below.
+Note: You only need to price the components used in the project (not all the 
+components in your lab kit.  Also, you do need need to account for the cost of 
+the circuit board or wires. In a real environment we would manufacture a PCB
+(Printed Circuit Board). As an optional task, you can search online for PCB 
+manufacturers and what the costs and options are in creating a PCB.  
+
+List:
+1 LCD Shield (Gravity: 1602 LCD Keypad Shield For Arduino) $8.90 per shield
+1 4.7k ohm Resistor (Resistor Carbon Film 4.7k Ohm 1/4 Watt 5%) $0.011 per resistor
+2 Push Button (Multicolor Buttons - 4-pack) 1.44 for whole pack $0.36 per button
+2 330 ohm Resistor (Resistor Carbon Film 330 Ohm 1/4 Watt 5%) $0.011 per resistor
+1 Green LED (WP1503GD) $0.10483 per LED
+1 Red LED   (WP1503ID) $0.10483 per LED
+1 Rotary Encoder (3315Y-001-016L) (14.6mm Black and Blue Knob with Set Screw for 0.125 Inch Shaft )$1.68342 per encoder and $0.89 per knob
+1 Buzzer (CEM-1206S) $0.47324 per Buzzer
+1 Temperature Sensor (DS18B20+)  $4.22 per sensor
+1 Arduino (A000066)  $19.80000 per Arduino
+Per Unit needed 
+Total cost per unit: 8.9+0.011*3+0.36*2+0.10483*2 + 1.68342 + 0.89 + 0.47324 + 4.22 + 19.8= $36.92932
+Cost for 1000 units: $36,929.32
+
+Review Question 2 (Health/Safety/Reliability)
+
+Assume this system was to be used in a real industrial monitoring application.
+
+Considering reliability, health, and safety...
+
+ - What scenarios might you suggest testing (considering both HW and SW) 
+    before releasing the product for use? 
+
+Scenarios could include testing the hardwares reaction to extreme temperatures and also figure out the max and min temperature the apparatus works under. Similarly we can test every other part of the system such as the LED lights, push buttons, rotary encoder, buzzer and the LCD shield itself. Another hardware test would be checking how many times the EEPROM can save values and how long the apparatus can work before it stops working. In regards to the software, testing would include testing edge cases, overflow from variables and making sure that everything works properly without errors or gibberish being printed. Software testing could also include seeing reaction time in regards to the interrupts and the accuracy of the timer in regards to the LED flashing time frequency and the alarm sound. 
+
+ - How might you make your design more reliable? By reliability we don't just
+   mean keeping it running correctly (though you should consider that), but 
+   also how you can detect that a connected component has failed to gracefully 
+   handle such situations.  You can consider both HW and SW points of failure, 
+   issues related to the operational environment, etc. and how to mitigate those
+   cases.
+
+To ensure that we have a reliable design system, we have to use some software to detect when hardware stops working. One example is having a sensor that would show the user what value the device is supposed to be showing (showing wether red or green light is on or off, the note that the frequency is supposed to be playing and so on). Another examples of this could include checking if the sensor is giving a valid value and only accepting a new data value if it is in a certain range. If there is a form of software failure, we may have a testing prototype period and release it to a number of participants who would let the developer know when a bug is encountered. Once these bugs are found, we can then make software updates to increase the reliability of the product (test driven development). Other than that, in regards to software, we can test the difference in time between user actions and for the LED print a reaction like how long it takes the button to register (and how consistent this is) and how quick the hardware changes to a change in the rotary encoder. To mitigate issues related to the operational environment we can test each device individually to its limit like testing the max and min temperature for the temp sensor, testing the effect of sunlight and environmental factors on the performance of the LEDm, ensuring that the buttons work consistently after numerous presses and testing the rotary encoder at different speeds and ensuring that the numbers change appropriately.  
+
+
+
+
+
